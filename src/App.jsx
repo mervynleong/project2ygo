@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Display from "./components/Display";
+import Display from "./components/BlueEyesDisplay";
 import { Form } from "react-router-dom";
+import BlueEyesDisplay from "./components/BlueEyesDisplay";
+import DarkMagicianDisplay from "./components/DarkMagicianDisplay";
 
 function App() {
   const [display, setDisplay] = useState([]);
@@ -27,7 +29,12 @@ function App() {
     cardImageFetch();
   }, []);
 
-  return <Display dog={display}></Display>;
+  return (
+    <>
+      <DarkMagicianDisplay></DarkMagicianDisplay>
+      <BlueEyesDisplay></BlueEyesDisplay>
+    </>
+  );
 }
 
 export default App;

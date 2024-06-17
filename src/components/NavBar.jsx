@@ -20,7 +20,7 @@ const NavBar = () => {
               to="/Dark_Magician"
               className={(navData) => (navData.isActive ? styles.active : "")}
             >
-              Members List
+              Dark Magician
             </NavLink>
           </li>
         </ul>
