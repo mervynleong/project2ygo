@@ -17,7 +17,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/Dark_Magician"
+              to="/Dark-Magician"
               className={(navData) => (navData.isActive ? styles.active : "")}
             >
               Dark Magician
