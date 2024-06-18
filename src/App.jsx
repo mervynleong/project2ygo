@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      {/* <DarkMagicianDisplay></DarkMagicianDisplay> */}
+      <DarkMagicianDisplay></DarkMagicianDisplay>
       <BlueEyesDisplay></BlueEyesDisplay>
       <Album>{display}</Album>
 
