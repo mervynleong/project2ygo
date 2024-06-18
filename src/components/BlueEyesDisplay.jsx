@@ -28,13 +28,13 @@ const BlueEyesDisplay = () => {
 
   // Adding card data
 
-  const addCardToAlbum = async () => {
+  const addCardToAlbum = async (imageLink) => {
     try {
       const res = await fetch(`${import.meta.env.VITE_SERVER}/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: APIKEY },
         body: JSON.stringify({
-          image_url: imageUrl,
+          image_url: imageLink,
         }),
       });
 
@@ -48,6 +48,7 @@ const BlueEyesDisplay = () => {
   };
 
   const createDivs = () => {
+    //
     // mapping through with index to iterate every single card
     // alt gives the card different indexes to iterate through
     // id gives the card different ids to get info later
