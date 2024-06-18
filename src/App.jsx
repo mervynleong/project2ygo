@@ -35,8 +35,8 @@ function App() {
 
   return (
     <>
-      <DarkMagicianDisplay></DarkMagicianDisplay>
-      <BlueEyesDisplay></BlueEyesDisplay>
+      {/* <DarkMagicianDisplay></DarkMagicianDisplay> */}
+      <BlueEyesDisplay putToAlbum = {setDisplay}></BlueEyesDisplay>
       <Album>{display}</Album>
 
       {/* <Routes>

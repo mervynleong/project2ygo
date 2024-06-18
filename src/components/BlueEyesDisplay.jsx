@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./BlueEyesDisplay.css";
 
-const BlueEyesDisplay = () => {
+const BlueEyesDisplay = (props) => {
   const [displayBE, setDisplayBE] = useState([]);
 
   const fetchBlueEyesData = async () => {
@@ -48,7 +48,7 @@ const BlueEyesDisplay = () => {
   };
 
   const createDivs = () => {
-    //
+    // to access card sets: card_sets[0].set_name
     // mapping through with index to iterate every single card
     // alt gives the card different indexes to iterate through
     // id gives the card different ids to get info later
@@ -59,6 +59,7 @@ const BlueEyesDisplay = () => {
             src={card.card_images[0].image_url_small}
             alt={`Card ${index}`}
           />
+          <label>Card Set: {card.card_sets[0].set_name}</label>
           <div>
             <button
               onClick={() =>
@@ -73,7 +74,11 @@ const BlueEyesDisplay = () => {
     ));
   };
 
-  return <div className="container">{createDivs()}</div>;
+  return (
+    <>
+      <div className="container">{createDivs()}</div>
+    </>
+  );
 };
 
 export default BlueEyesDisplay;

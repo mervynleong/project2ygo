@@ -1,6 +1,6 @@
 import React from "react";
 
-const Album = () => {
+const Album = (props) => {
   return <div></div>;
 };
 
