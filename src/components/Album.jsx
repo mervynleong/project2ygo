@@ -59,6 +59,7 @@ const Album = () => {
         {displayAlbum.map((card, index) => {
           return (
             <AlbumCard
+              key={index}
               card={card}
               index={index}
               handleDelete={handleDelete}
