@@ -1,2 +1,3 @@
-# Project-2
- project 2
+# Yugioh Album App for GA project
+App Title: My_BlueEyes_DarkMagician
+

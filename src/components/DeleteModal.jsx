@@ -2,9 +2,6 @@ import React from "react";
 import styles from "./Modal.module.css";
 
 const DeleteModal = (props) => {
-  if (!props.showDeleteModal) {
-    return null;
-  }
   return (
     <>
       <div className={styles.modalBackground}>

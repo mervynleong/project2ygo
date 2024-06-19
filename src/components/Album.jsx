@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import DeleteModal from "./DeleteModal";
+import AlbumCard from "./AlbumCard";
 
 const Album = () => {
   const [displayAlbum, setDisplayAlbum] = useState([]);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const fetchAlbum = async () => {
     try {
@@ -54,58 +53,19 @@ const Album = () => {
     }
   };
 
-  // To access actual fields sent into airtable:
-  // displayAlbum.records[0].fields
-  // displayAlbum.records[0].fields.itemSet for item set (case Sensitive)
-  // displayAlbum.records[0].fields.imageURL for image url (case sensitive)
-  // displayAlbum.records[0].fields.cardID for card id (case sensitive)
-
-  const createDivs = () => {
-    return displayAlbum.map((card, index) => (
-      <div
-        className="card-container"
-        style={{ backgroundColor: "turqoise" }}
-        key={index}
-      >
-        {/* converting string back to numeric */}
-        <div
-          key={index}
-          id={card.id}
-          className="card-item"
-          style={{ backgroundColor: "green" }}
-        >
-          <img src={card.fields.imageURL} alt={`Card ${index}`} />
-          <label>Card Set: {card.fields.itemSet}</label>
-          <div>
-            <button
-              onClick={(id) => {
-                openModal(id);
-              }}
-            >
-              Remove Card from Album?
-            </button>
-            <DeleteModal
-              showDeleteModal={showDeleteModal}
-              closeModal={closeModal}
-              handleDelete={handleDelete}
-              id={card.id}
-            ></DeleteModal>
-          </div>
-        </div>
-      </div>
-    ));
-  };
-
-  const openModal = () => {
-    setShowDeleteModal(true);
-  };
-  const closeModal = () => {
-    setShowDeleteModal(false);
-  };
-
   return (
     <>
-      <div className="container">{createDivs()}</div>
+      <div className="container">
+        {displayAlbum.map((card, index) => {
+          return (
+            <AlbumCard
+              card={card}
+              index={index}
+              handleDelete={handleDelete}
+            ></AlbumCard>
+          );
+        })}
+      </div>
     </>
   );
 };
