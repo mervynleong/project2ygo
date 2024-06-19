@@ -1,51 +1,38 @@
-import React, { useState, useEffect } from "react";
-import Display from "./components/BlueEyesDisplay";
-import { Form } from "react-router-dom";
-import BlueEyesDisplay from "./components/BlueEyesDisplay";
-import DarkMagicianDisplay from "./components/DarkMagicianDisplay";
-import Album from "./components/Album";
-import { useParams } from "react-router-dom";
-import { Suspense } from "react";
+import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import NotFound from "./pages/NotFound";
+import { Suspense } from "react";
+const BlueEyesDisplay = React.lazy(() =>
+  import("./components/BlueEyesDisplay")
+);
+// import BlueEyesDisplay from "./components/BlueEyesDisplay";
+const DarkMagicianDisplay = React.lazy(() =>
+  import("./components/DarkMagicianDisplay")
+);
+// import DarkMagicianDisplay from "./components/DarkMagicianDisplay";
+const NotFound = React.lazy(() => import("./components/NotFound"));
+// import NotFound from "./components/NotFound";
+import NavBar from "./components/NavBar";
+const Album = React.lazy(() => import("./components/Album"));
+// import Album from "./components/Album";
+const MainPage = React.lazy(() => import("./components/MainPage"));
+// import MainPage from "./components/MainPage";
 
 function App() {
-  const [display, setDisplay] = useState([]);
-  // const url = "https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=";
-
-  // const cardImageFetch = async () => {
-  //   try {
-  //     const res = await fetch(url + "Blue-Eyes");
-
-  //     if (!res.ok) {
-  //       throw new Error("Fetch error");
-  //     }
-
-  //     const data = await res.json();
-  //     setDisplay(data.data[0].card_images[0].image_url_small);
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   cardImageFetch();
-  // }, []);
-
   return (
     <>
-      {/* <DarkMagicianDisplay></DarkMagicianDisplay> */}
-      <BlueEyesDisplay putToAlbum = {setDisplay}></BlueEyesDisplay>
-      <Album>{display}</Album>
-
-      {/* <Routes>
-        <Suspense fallback={<p>Loading...</p>}>
-          <Route path="/" element={<Navigate replace to="/main" />} />
-          <Route path="main" element={<BlueEyesDisplay />} />
-          <Route path="*" element={<NotFound />} />
-        </Suspense>
-      </Routes> */}
+      <Suspense fallback={<p>Loading...</p>}>
+        <div className="page">
+          <NavBar></NavBar>
+          <Routes>
+            <Route path="/" element={<Navigate replace to="/MainPage" />} />
+            <Route path="/MainPage" element={<MainPage />} />
+            <Route path="/Dark-Magician" element={<DarkMagicianDisplay />} />
+            <Route path="/Blue-Eyes" element={<BlueEyesDisplay />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/Album" element={<Album />} />
+          </Routes>
+        </div>
+      </Suspense>
     </>
   );
 }

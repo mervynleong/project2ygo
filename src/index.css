@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .centered {
@@ -19,4 +19,77 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+nav {
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li {
+  margin: 0;
+}
+
+.page {
+  margin-top: 100px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+li > a {
+  font-size: 40px;
+  color: rgb(247, 247, 133);
+  padding: 5px 10px;
+  text-decoration: none;
+  position: relative;
+}
+
+nav li > a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+nav li > a:hover::before {
+  opacity: 1;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #edeae6, 0 0 20px #f7f5f3; /* Define initial glow */
+  }
+  50% {
+    text-shadow: 0 0 20px #2473fa, 0 0 30px #2473fa; /* Adjust glow intensity */
+  }
+  100% {
+    text-shadow: 0 0 10px #f057b8, 0 0 20px #f057b8; /* Return to initial glow */
+  }
+}
+
+nav li > a:hover {
+  animation: glow 1.5s infinite alternate; /* Apply the glow animation */
 }

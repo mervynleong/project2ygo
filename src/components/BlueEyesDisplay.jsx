@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./BlueEyesDisplay.css";
+import Button from "./Button";
 
-const BlueEyesDisplay = (props) => {
+const BlueEyesDisplay = () => {
   const [displayBE, setDisplayBE] = useState([]);
 
   const fetchBlueEyesData = async () => {
@@ -28,20 +29,33 @@ const BlueEyesDisplay = (props) => {
 
   // Adding card data
 
-  const addCardToAlbum = async (imageLink) => {
+  const addCardToAlbum = async (imageLink, setName, cardID) => {
+    console.log({ imageLink, setName, cardID });
     try {
-      const res = await fetch(`${import.meta.env.VITE_SERVER}/${id}`, {
+      const res = await fetch(import.meta.env.VITE_REACT_APP_API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: APIKEY },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_REACT_APP_API_KEY}`,
+        },
         body: JSON.stringify({
-          image_url: imageLink,
+          // following airtable format
+          records: [
+            {
+              fields: {
+                // airtable don't accept numbers. need to convert to string first
+                cardID: cardID.toString(),
+                imageURL: imageLink,
+                itemSet: setName,
+              },
+            },
+          ],
         }),
       });
 
       if (!res.ok) {
         throw new Error("Fetch error");
       }
-      fetchBlueEyesData();
     } catch (err) {
       console.log(err.message);
     }
@@ -53,21 +67,34 @@ const BlueEyesDisplay = (props) => {
     // alt gives the card different indexes to iterate through
     // id gives the card different ids to get info later
     return displayBE.map((card, index) => (
-      <div className="card-container">
+      <div className="card-container" key={index}>
         <div key={index} id={card.id} className="card-item">
           <img
             src={card.card_images[0].image_url_small}
             alt={`Card ${index}`}
           />
-          <label>Card Set: {card.card_sets[0].set_name}</label>
+          {/* there is an undefined cardset */}
+
+          {card.card_sets ? (
+            <label>
+              Card Set: {JSON.stringify(card.card_sets[0].set_name)}
+            </label>
+          ) : (
+            "There is currently no card set available"
+          )}
           <div>
-            <button
+            <Button
               onClick={() =>
-                addCardToAlbum(card.card_images[0].image_url_small)
+                addCardToAlbum(
+                  card.card_images[0].image_url_small,
+                  card.card_sets[0].set_name,
+                  card.id
+                )
               }
             >
+              {" "}
               Add Card to Featured Album?
-            </button>
+            </Button>
           </div>
         </div>
       </div>
