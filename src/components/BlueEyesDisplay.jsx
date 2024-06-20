@@ -46,7 +46,7 @@ const BlueEyesDisplay = () => {
                 // airtable don't accept numbers. need to convert to string first
                 cardID: cardID.toString(),
                 imageURL: imageLink,
-                itemSet: setName || "There is no card set available",
+                itemSet: setName,
               },
             },
           ],
@@ -80,14 +80,17 @@ const BlueEyesDisplay = () => {
               Card Set: {JSON.stringify(card.card_sets[0].set_name)}
             </label>
           ) : (
-            "There is currently no card set available"
+            <label>There is currently no card set available</label>
           )}
           <div>
             <Button
               onClick={() =>
                 addCardToAlbum(
                   card.card_images[0].image_url_small,
-                  card.card_sets[0].set_name,
+                  card.card_sets
+                    ? // condition to check the card sets availability, to assign the card set availability
+                      card.card_sets[0].set_name
+                    : "There is currently no card set available",
                   card.id
                 )
               }
