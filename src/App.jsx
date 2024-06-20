@@ -4,18 +4,13 @@ import { Suspense } from "react";
 const BlueEyesDisplay = React.lazy(() =>
   import("./components/BlueEyesDisplay")
 );
-// import BlueEyesDisplay from "./components/BlueEyesDisplay";
 const DarkMagicianDisplay = React.lazy(() =>
   import("./components/DarkMagicianDisplay")
 );
-// import DarkMagicianDisplay from "./components/DarkMagicianDisplay";
 const NotFound = React.lazy(() => import("./components/NotFound"));
-// import NotFound from "./components/NotFound";
 import NavBar from "./components/NavBar";
 const Album = React.lazy(() => import("./components/Album"));
-// import Album from "./components/Album";
 const MainPage = React.lazy(() => import("./components/MainPage"));
-// import MainPage from "./components/MainPage";
 
 function App() {
   return (

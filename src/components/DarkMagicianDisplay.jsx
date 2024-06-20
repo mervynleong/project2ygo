@@ -46,7 +46,7 @@ const DarkMagicianDisplay = () => {
                 // airtable don't accept numbers. need to convert to string first
                 cardID: cardID.toString(),
                 imageURL: imageLink,
-                itemSet: setName,
+                itemSet: setName || "There is no card set available",
               },
             },
           ],
