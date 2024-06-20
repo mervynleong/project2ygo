@@ -1,6 +1,9 @@
 # Yugioh Album App for GA project
 
 App Name: My_BlueEyes_DarkMagician
+
+Link to my Public Board: https://github.com/users/mervynleong/projects/2/views/1
+
 Storyboarding:
 I want to create an app "For Old-School Yu-Gi-Oh! Enthusiasts" to "View types of Blue-eyes and Dark-Magician Cards available and favourite them into an album. The album will be saved and allow users to view their favourite cards and which card sets they are from."
 
@@ -27,8 +30,27 @@ The user can then click on any of the 4 prompts above indicated as:
 - Dark-Magician
   Similar to "Blue-Eyes" landing page above, the "Dark-Magician" landing page will direct the user to a page where it shows all available "Dark-Magician" archetype in the Yu-Gi-Oh! card game as shown below.
   Each and every card will also be shown and can be added to the "Album" as well.
+  ![alt text](DarkMagicianLandingScreen.jpg)
 
 - Album
+  "Album" is a page where the user can see the cards that the user has selected to be added from "Blue-Eyes", "Dark-Magician" as shown below.
+  ![alt text](<AlbumLanding Screen.jpg>)
+
+The user can also delete the cards that he/she does not want to be in the featured album. There will be a prompt to confirm the deletion of the "card" selected as shown below.
+Clicking on "Removed from card Album?" button will trigger the prompt, and clicking on "OK" will validate the deletion process to remove the featured card from the album. Clicking on cancel will remove the prompt and invalidate the deletion process which will technically do "nothing"/ not removing the card from the album.
+![alt text](RemovedFromAlbumScreen.jpg)
+
+In addition to the features above, there is an additional conditional feature.
+This feature requires the user to type the landing page wrongly. Example ".../Album" leads to the "Album", ".../MainPage" leads to the "Main Page". However, if the endpoint is not keyed in correctly. It will direct the user to the specific landing page below. This specific landing page will "inform" the users that there are no such cards available for viewing. In addition, the button (Obliterate) below the gif in the landing page can be clicked to allow the user to trigger a sound-effect, taking the iconic line from Yu-Gi-Oh!, "Exodia, Obliterate" to be played.
+![alt text](NotFoundLandingScreen.jpg)
+
+Technologies used:
+React.js
+HTML
+CSS
+
+Planned future enhancements: search function to display the cards instead. Maybe a possible "deck builder" like "Yugipedia" app.
+I would like to thank GA's Gabrielle and Desmond for their help in debugging and guiding me in this project.
 
 References:
 For Yu-Gi-Oh! Gif in NotFound Page:
