@@ -7,16 +7,16 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/MainPage">Main Page</NavLink>
+            <NavLink to="/main-Page">Main Page</NavLink>
           </li>
           <li>
-            <NavLink to="/Blue-Eyes">Blue-Eyes</NavLink>
+            <NavLink to="/blue-Eyes">Blue-Eyes</NavLink>
           </li>
           <li>
-            <NavLink to="/Dark-Magician">Dark-Magician</NavLink>
+            <NavLink to="/dark-Magician">Dark-Magician</NavLink>
           </li>
           <li>
-            <NavLink to="/Album">Album</NavLink>
+            <NavLink to="/album">Album</NavLink>
           </li>
         </ul>
       </nav>

@@ -19,12 +19,12 @@ function App() {
         <div className="page">
           <NavBar></NavBar>
           <Routes>
-            <Route path="/" element={<Navigate replace to="/MainPage" />} />
-            <Route path="/MainPage" element={<MainPage />} />
-            <Route path="/Dark-Magician" element={<DarkMagicianDisplay />} />
-            <Route path="/Blue-Eyes" element={<BlueEyesDisplay />} />
+            <Route path="/" element={<Navigate replace to="/main-Page" />} />
+            <Route path="/main-Page" element={<MainPage />} />
+            <Route path="/dark-Magician" element={<DarkMagicianDisplay />} />
+            <Route path="/blue-Eyes" element={<BlueEyesDisplay />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/Album" element={<Album />} />
+            <Route path="/album" element={<Album />} />
           </Routes>
         </div>
       </Suspense>

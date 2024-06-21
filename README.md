@@ -48,6 +48,7 @@ Technologies used:
 React.js
 HTML
 CSS
+Airtable
 
 Planned future enhancements: search function to display the cards instead. Maybe a possible "deck builder" like "Yugipedia" app.
 I would like to thank GA's Gabrielle and Desmond for their help in debugging and guiding me in this project.
